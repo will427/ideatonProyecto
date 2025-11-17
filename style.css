@@ -1,0 +1,253 @@
+/* 1. CONFIGURACIÓN GLOBAL Y VARIABLES DE COLOR */
+:root {
+    --color-navy: #0A192F;         /* Azul Marino (fondo sidebar) */
+    --color-off-white: #FAF9F6;    /* Blanco Hueso (fondo principal) */
+    --color-white-pure: #FFFFFF;   /* Blanco Puro (para tarjetas) */
+    --color-text-primary: #1E293B; /* Texto oscuro */
+    --color-text-light: #E2E8F0;   /* Texto claro (en sidebar) */
+    --color-accent: #3A8BFF;       /* Acento de color (ej. botones) */
+    --color-accent-dark: #2563EB;
+    
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --sidebar-width: 280px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-off-white);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+/* 2. ESTILOS DE LA BARRA LATERAL (SIDEBAR) */
+.sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-navy);
+    color: var(--color-text-light);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+}
+
+.sidebar-header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-white-pure);
+    margin-bottom: 2rem;
+}
+
+.sidebar-nav {
+    flex-grow: 1; /* Empuja el footer hacia abajo */
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: block;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav a.active {
+    background-color: var(--color-accent);
+    color: var(--color-white-pure);
+    font-weight: 700;
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* 3. ESTILOS DEL CONTENIDO PRINCIPAL (MAIN) */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 2rem 3rem;
+}
+
+.main-header {
+    margin-bottom: 2rem;
+}
+
+.main-header h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    opacity: 0.8;
+}
+
+/* 4. ESTILOS DE TARJETAS (CARDS) */
+.card-content {
+    padding: 1.5rem;
+}
+
+/* Tarjeta de Noticia Grande */
+.featured-news .news-card-large {
+    background-color: var(--color-white-pure);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.featured-news .news-card-large img {
+    width: 100%;
+    height: 300px; /* Alto fijo para la imagen destacada */
+    object-fit: cover; /* Evita que la imagen se distorsione */
+}
+
+.featured-news h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0.5rem 0;
+}
+
+.featured-news p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Tarjetas de Proyectos en Ejecución */
+.active-projects h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 1.5rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--color-white-pure);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.project-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0.5rem 0;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    min-height: 45px; /* Altura mínima para alinear tarjetas */
+}
+
+/* Etiquetas (Tags) */
+.card-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    color: var(--color-white-pure);
+    text-transform: uppercase;
+    background-color: var(--color-accent);
+}
+.tag-medicina { background-color: #28A745; } /* Verde */
+.tag-contaduria { background-color: #FFC107; } /* Amarillo/Mostaza */
+.tag-ingenieria { background-color: #DC3545; } /* Rojo */
+
+
+/* Barras de Progreso */
+.project-status span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    opacity: 0.7;
+}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #E2E8F0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+.progress {
+    height: 100%;
+    background-color: var(--color-accent);
+    border-radius: 4px;
+}
+
+/* 5. ESTILOS DE BOTONES */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white-pure);
+}
+.btn-primary:hover {
+    background-color: var(--color-accent-dark);
+}
+
+.btn-secondary {
+    background-color: var(--color-white-pure);
+    color: var(--color-navy);
+}
+.btn-secondary:hover {
+    background-color: #E2E8F0; /* Un gris más claro */
+}
